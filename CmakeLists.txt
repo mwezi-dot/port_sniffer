@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Project name and version
+project(NetworkPortSniffer VERSION 1.0 LANGUAGES CXX)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Include directories
+include_directories(include)
+
+# Source files
+set(SOURCES
+    src/main.cpp
+    src/Sniffer.cpp
+)
+
+# Link Boost libraries
+find_package(Boost REQUIRED COMPONENTS system)
+
+add_executable(network_port_sniffer ${SOURCES})
+target_link_libraries(network_port_sniffer Boost::system)
